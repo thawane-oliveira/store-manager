@@ -15,6 +15,9 @@ const getProductById = async (id) => {
 
 const addNewProduct = async (product) => {
   const newProduct = await model.addNewProduct(product);
+  if (!product) {
+    return { message: '"name" is required' };
+  }
   return { id: newProduct, name: product.name };
 };
 

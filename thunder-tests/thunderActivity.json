@@ -68,5 +68,43 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "712cab59-697b-4f56-b6dc-368e4ccd7648",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/",
+    "url": "localhost:3000/products/",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-13T21:25:59.492Z",
+    "modified": "2023-02-13T21:25:59.492Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Xablauzinho\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "843b5b21-cbf1-443f-85b5-90899e084e72",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/1",
+    "url": "localhost:3000/products/1",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-13T22:15:07.276Z",
+    "modified": "2023-02-13T22:15:07.276Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Xablauzinho\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

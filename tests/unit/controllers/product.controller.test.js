@@ -55,4 +55,17 @@ describe('Testes da camada Controller', function () {
     expect(res.json).to.have.been.calledOnceWith(msgMock);
   });
 
+  it('Verifica se é retornada uma mensagem de erro com status 400 caso não seja passado nenhum name no cadastro - com controllers', async function () {
+    const req = { params: { name: 'ryk' } };
+    const res = {};
+    const emptyName = { type: 400, message: '"name" length must be at least 5 characters long' }
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(services, 'addNewProduct').resolves(emptyName);
+    await controllers.addNewProduct(req, res);
+
+    expect(res.json).to.have.been.calledOnceWith(emptyName);
+  });
+
 });

@@ -18,7 +18,12 @@ const finalJustice = {
   "name": "Escudo do Capitão América"
 };
 
+const newProductName = {
+  name: 'Rykiel Vaquinha Maltesa',
+};
+
 module.exports = {
   allProducts,
   finalJustice,
+  newProductName,
 }
