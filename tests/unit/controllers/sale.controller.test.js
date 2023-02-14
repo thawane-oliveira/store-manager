@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { dojyan, scaryMonsters, tusk } = require('../mocks/sale.mock');
+const { dojyan, ballBreaker, scaryMonsters, creamStartler } = require('../mocks/sale.mock');
 const controllers = require('../../../src/controllers/sales.controller');
 const services = require('../../../src/services/sales.service');
 
@@ -24,8 +24,52 @@ describe('Testes da camada Controller para a rota sales', function () {
     await controllers.addNewSale(req, res);
 
     expect(res.status).to.have.been.calledWith(201);
-    // expect(res.json).to.have.been.calledWith(scaryMonsters);
+    expect(res.json).to.have.been.calledWith(dojyan);
+  });
 
+  it('Verifica se ao entrar na rota /sales com GET são retornadas todas as vendas - com controllers', async function () {
+
+    const req = {};
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(services, 'getAllSales').resolves(ballBreaker);
+
+    await controllers.getAllSales(req, res);
+    expect(res.json).to.have.been.calledWith(ballBreaker);
+    expect(res.status).to.have.been.calledOnceWith(200);
+  });
+
+  it('Verifica se ao entrar na rota /sales:id com GET é retornada a venda específica do id - com controllers', async function () {
+
+    const req = { params: { id: '1' } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(services, 'getSaleById').resolves(creamStartler);
+
+    await controllers.getSaleById(req, res);
+    expect(res.json).to.have.been.calledWith(creamStartler);
+    expect(res.status).to.have.been.calledOnceWith(200);
+  });
+
+  it('Verifica se ao entrar na rota /sales:id com id inexistente, é exibido erro - com controllers', async function () {
+
+    const req = { params: { id: '49' } };
+    const res = {};
+    const msgMock = { message: 'Sale not found' }
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(services, 'getSaleById').resolves([]);
+    
+    await controllers.getSaleById(req, res);
+
+    expect(res.status).to.have.been.calledWith(404);
+    expect(res.json).to.have.been.calledWith(msgMock);
   });
 
 });

@@ -21,8 +21,16 @@ const addNewProduct = async (product) => {
   return { id: newProduct, name: product.name };
 };
 
+const editProduct = async (name, id) => {
+  const getProduct = await model.getProductById(id);
+  if (!getProduct) return { type: 404, message: 'Product not found' };
+  await model.editProduct(name, id);
+  return { type: 200, id, name };
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   addNewProduct,
+  editProduct,
 };

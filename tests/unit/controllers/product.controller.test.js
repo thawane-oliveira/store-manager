@@ -48,7 +48,9 @@ describe('Testes da camada Controller', function () {
 
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
+
     sinon.stub(services, 'getProductById').resolves(msgMock);
+    
     await controllers.getProductById(req, res);
 
     expect(res.status).to.have.been.calledOnceWith(404);
