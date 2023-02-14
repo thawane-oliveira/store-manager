@@ -15,4 +15,8 @@ salesRouter.post('/',
   validateIdExistence,
   controller.addNewSale);
 
+salesRouter.get('/', controller.getAllSales);
+
+salesRouter.get('/:id', controller.getSaleById);
+
 module.exports = salesRouter;

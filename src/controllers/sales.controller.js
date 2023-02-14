@@ -6,6 +6,25 @@ const addNewSale = async (req, res) => {
   return res.status(201).json(result);
 };
 
+const getAllSales = async (_req, res) => {
+  const result = await service.getAllSales();
+  console.log(result);
+  return res.status(200).json(result);
+};
+
+const getSaleById = async (req, res) => {
+  const { id } = req.params;
+
+  const result = await service.getSaleById(id);
+
+  if (result.length === 0 || !result) {
+    return res.status(404).json({ message: 'Sale not found' }); 
+}
+  return res.status(200).json(result);
+};
+
 module.exports = {
   addNewSale,
+  getAllSales,
+  getSaleById,
 };
