@@ -8,7 +8,6 @@ const addNewSale = async (req, res) => {
 
 const getAllSales = async (_req, res) => {
   const result = await service.getAllSales();
-  console.log(result);
   return res.status(200).json(result);
 };
 

@@ -24,11 +24,11 @@ const addNewProduct = async (req, res) => {
 const editProduct = async (req, res) => {
   const { name } = req.body;
   const { id } = req.params;
-  const { type, message } = await service.editProduct(name, id);
+  const result = await service.editProduct(name, id);
 
-  if (message) return res.status(type).json({ message });
+  if (result.message) return res.status(404).json({ message: 'Product not found' });
 
-  return res.status(type).json({ id, name });
+  return res.status(200).json({ id, name });
 };
 
 const deleteProduct = async (req, res) => {

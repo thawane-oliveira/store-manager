@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { allProducts, finalJustice } = require('../mocks/product.mock');
+const { allProducts, finalJustice, expectedEdited } = require('../mocks/product.mock');
 const controllers = require('../../../src/controllers/products.controller');
 const services = require('../../../src/services/products.service');
 
@@ -44,13 +44,13 @@ describe('Testes da camada Controller', function () {
   it('Verifica se é retornada uma mensagem de erro com status 404 caso não seja encontrado nenhum produto pelo id pesquisado - com controllers', async function () {
     const req = { params: { id: '49' } };
     const res = {};
-    const msgMock = { type: 404, message: 'Product not found' }
+    const msgMock = { type: 404, message: 'Product not found' };
 
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
     sinon.stub(services, 'getProductById').resolves(msgMock);
-    
+
     await controllers.getProductById(req, res);
 
     expect(res.status).to.have.been.calledOnceWith(404);
@@ -60,7 +60,7 @@ describe('Testes da camada Controller', function () {
   it('Verifica se é retornada uma mensagem de erro com status 400 caso não seja passado nenhum name no cadastro - com controllers', async function () {
     const req = { params: { name: 'ryk' } };
     const res = {};
-    const emptyName = { type: 400, message: '"name" length must be at least 5 characters long' }
+    const emptyName = { type: 400, message: '"name" length must be at least 5 characters long' };
 
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
@@ -68,6 +68,66 @@ describe('Testes da camada Controller', function () {
     await controllers.addNewProduct(req, res);
 
     expect(res.json).to.have.been.calledOnceWith(emptyName);
+  });
+
+  it('Verifica se é possível editar um produto já existente no banco de dados - com controllers', async function () {
+    const req = {
+      params: { "id": 1 },
+      body: {
+        "name": "Hamon Bubbles"
+      }
+    };
+    const res = {}
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(services, 'editProduct').resolves(expectedEdited)
+    await controllers.editProduct(req, res);
+    expect(res.status).to.have.been.calledWith(200)
+    expect(res.json).to.have.been.calledWith(expectedEdited)
+  });
+
+
+  it('Verifica se é retornado status 404 ao tentar editar um produto inexistente no banco de dados - com controllers', async function () {
+    const req = {
+      params: { "id": 6 },
+      body: {
+        "name": "Sunlight Yellow Overdrive"
+      }
+    };
+    const res = {}
+    const errorMsg = { message: 'Product not found' };
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(services, 'editProduct').resolves(errorMsg)
+    await controllers.editProduct(req, res);
+    expect(res.status).to.have.been.calledWith(404)
+    expect(res.json).to.have.been.calledWith(errorMsg)
+  });
+
+  it('Verifica se é possível excluir um produto já existente no banco de dados - com controllers', async function () {
+    const req = { params: { "id": 1 } };
+    const res = {}
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(services, 'deleteProduct').resolves({})
+    await controllers.deleteProduct(req, res);
+    expect(res.status).to.have.been.calledWith(204)
+  });
+
+  it('Verifica se é exibido status 404 ao tentar excluir um produto inexistente no banco de dados - com controllers', async function () {
+    const req = { params: { "id": 14 } };
+    const res = {}
+    const errorMsg = { message: 'Product not found' };
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(services, 'deleteProduct').resolves(errorMsg)
+    await controllers.deleteProduct(req, res);
+    expect(res.status).to.have.been.calledWith(404)
+    expect(res.json).to.have.been.calledWith(errorMsg)
   });
 
 });
