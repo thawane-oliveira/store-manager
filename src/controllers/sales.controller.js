@@ -38,7 +38,6 @@ const editSale = async (req, res) => {
   const editedContent = req.body;
   const { id } = req.params;
   const { status, responseJSON } = await service.editSale(id, editedContent);
-
   return res.status(status).json(responseJSON);
 };
 

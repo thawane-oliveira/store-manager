@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { dojyan, scaryMonsters, tusk, ballBreaker, creamStartler, sbr } = require('../mocks/sale.mock');
+const { dojyan, scaryMonsters, tusk, ballBreaker, creamStartler, sbr, paisleyPark, softAndWet } = require('../mocks/sale.mock');
 const services = require('../../../src/services/sales.service');
 const models = require('../../../src/models/sales.model');
 
@@ -40,5 +40,27 @@ describe('Testes da camada Service para a rota sales', function () {
 
     const sales = await services.deleteSale(1);
     expect(sales).to.be.deep.equal(creamStartler);
+  });
+
+  it('Verifica se é possível editar uma venda - com service', async function () {
+
+    const mockReturn = { status: 200, responseJSON: paisleyPark };
+
+    sinon.stub(models, 'getSaleById').resolves(creamStartler);
+    sinon.stub(models, 'deleteSaleDetails').resolves(sbr);
+
+    const sales = await services.editSale(1, softAndWet);
+    expect(sales).to.be.deep.equal(mockReturn);
+  });
+
+  it('Verifica se não é possível editar uma venda que tenha id inválido - com service', async function () {
+
+    const mockReturn = { status: 404, responseJSON: { message: 'Sale not found' } };
+
+    sinon.stub(models, 'getSaleById').resolves([]);
+    sinon.stub(models, 'deleteSaleDetails').resolves(sbr);
+
+    const sales = await services.editSale(5, softAndWet);
+    expect(sales).to.be.deep.equal(mockReturn);
   });
 });

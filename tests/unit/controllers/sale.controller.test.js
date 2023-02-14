@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { dojyan, ballBreaker, scaryMonsters, creamStartler, d4c } = require('../mocks/sale.mock');
+const { dojyan, ballBreaker, scaryMonsters, creamStartler, d4c, softAndWet, paisleyPark } = require('../mocks/sale.mock');
 const controllers = require('../../../src/controllers/sales.controller');
 const services = require('../../../src/services/sales.service');
 
@@ -100,6 +100,24 @@ describe('Testes da camada Controller para a rota sales', function () {
     await controllers.deleteSale(req, res);
 
     expect(res.status).to.have.been.calledWith(404);
+  });
+
+  it('Verifica se ao entrar na rota /sales:id com PUT é possível editar uma venda já cadastrada - com controllers', async function () {
+
+    const mockResolve = { status: 200, responseJSON: paisleyPark }
+
+    const req = { params: { id: '1' }, body: softAndWet };
+    const res = {};
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(services, 'editSale').resolves(mockResolve);
+
+    await controllers.editSale(req, res);
+
+    expect(res.json).to.have.been.calledWith(paisleyPark);
+    expect(res.status).to.have.been.calledWith(200);
   });
 
 });

@@ -3,6 +3,8 @@ const productsRouter = require('express').Router();
 const controller = require('../controllers/products.controller');
 const productNameValidation = require('../middlewares/productNameValidation');
 
+productsRouter.get('/search', controller.searchProduct);
+
 productsRouter.get('/', controller.getAllProducts);
 
 productsRouter.get('/:id', controller.getProductById);

@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { dojyan, scaryMonsters, ballBreaker, creamStartler } = require('../mocks/sale.mock');
+const { dojyan, scaryMonsters, ballBreaker, creamStartler, paisleyPark } = require('../mocks/sale.mock');
 const connection = require('../../../src/models/connection');
 const models = require('../../../src/models/sales.model');
 
@@ -45,5 +45,12 @@ describe('Testes da camada Model para a rota sales', function () {
     sinon.stub(connection, 'execute').resolves([scaryMonsters]);
     const sales = await models.deleteSale(3);
     expect(sales).to.be.deep.equal(scaryMonsters);
+  });
+
+  it('Verifica se é possível editar uma venda e seus detalhes pelo id - com model', async function () {
+    sinon.stub(connection, 'execute').resolves([paisleyPark]);
+    await models.getSaleById(1);
+    const sales = await models.deleteSaleDetails(1);
+    expect(sales).to.be.deep.equal(paisleyPark);
   });
 });

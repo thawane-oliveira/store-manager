@@ -54,16 +54,14 @@ const deleteSale = async (id) => {
   return result;
 };
 
-const editSale = async (id, sale) => {
-  const { productId, quantity } = sale[0];
-  console.log(id, 'id', sale, 'passou aqui model');
-  const [result] = await connection.execute(
-    'UPDATE StoreManager.sales_products SET quantity = ? WHERE sale_id = ? AND product_id = ?',
-    [quantity, id, productId],
-  );
-  console.log(result, 'result da model');
-  return result;
-};
+// const editSale = async (id, sale) => {
+//   const { productId, quantity } = sale[0];
+//   const [result] = await connection.execute(
+//     'UPDATE StoreManager.sales_products SET quantity = ? WHERE sale_id = ? AND product_id = ?',
+//     [quantity, id, productId],
+//   );
+//   return result;
+// };
 
 module.exports = {
   addNewSale,
@@ -71,6 +69,6 @@ module.exports = {
   getAllSales,
   getSaleById,
   deleteSale,
-  editSale,
+  // editSale,
   deleteSaleDetails,
 };

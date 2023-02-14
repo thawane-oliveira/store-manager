@@ -35,10 +35,19 @@ const deleteProduct = async (id) => {
   return { type: 204 };
 };
 
+const searchProduct = async (searchValue) => {
+  const getProducts = await model.getAllProducts();
+
+  const verifyProducts = getProducts.filter(({ name }) => name.includes(searchValue));
+
+  return verifyProducts;
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   addNewProduct,
   editProduct,
   deleteProduct,
+  searchProduct,
 };

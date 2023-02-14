@@ -90,6 +90,31 @@ const sbr = {
   warningStatus: 0
 };
 
+const softAndWet = [
+  {
+    "productId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 2,
+    "quantity": 50
+  }
+];
+
+const paisleyPark = {
+  "saleId": 1,
+  "itemsUpdated": [
+    {
+      "productId": 1,
+      "quantity": 10
+    },
+    {
+      "productId": 2,
+      "quantity": 50
+    }
+  ]
+};
+
 module.exports = {
   dojyan,
   scaryMonsters,
@@ -98,4 +123,6 @@ module.exports = {
   creamStartler,
   d4c,
   sbr,
+  softAndWet,
+  paisleyPark,
 }
