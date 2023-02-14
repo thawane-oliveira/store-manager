@@ -21,7 +21,7 @@ const getAllSales = async () => {
     FROM StoreManager.sales_products AS prod 
     INNER JOIN StoreManager.sales AS sale ON sale.id = prod.sale_id
     ORDER BY sale.id, productId`,
-);
+  );
   return result;
 };
 
@@ -37,9 +37,27 @@ const getSaleById = async (id) => {
   return result;
 };
 
+const deleteSaleDetails = async (id) => {
+  const [result] = await connection.execute(
+    'DELETE FROM StoreManager.sales_products WHERE sale_id = ?',
+    [id],
+);
+  return result;
+};
+
+const deleteSale = async (id) => {
+  await deleteSaleDetails(id);
+  const [result] = await connection.execute(
+    'DELETE FROM StoreManager.sales WHERE id =?',
+    [id],
+  );
+  return result;
+};
+
 module.exports = {
   addNewSale,
   addSaleDetails,
   getAllSales,
   getSaleById,
+  deleteSale,
 };

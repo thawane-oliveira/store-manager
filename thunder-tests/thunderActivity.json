@@ -140,12 +140,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-02-14T02:17:07.545Z",
-    "modified": "2023-02-14T02:22:43.607Z",
+    "modified": "2023-02-14T15:03:58.254Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 49,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  },\n    {\n    \"productId\": 4,\n    \"quantity\": 50\n  }\n]",
+      "raw": "{\n  \"name\": \"Pannacota de morango\"\n}",
       "form": []
     },
     "tests": []
@@ -326,6 +326,82 @@
     "sortNum": 0,
     "created": "2023-02-14T14:41:11.316Z",
     "modified": "2023-02-14T14:41:11.316Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Pannacota de morango\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4f2c4385-4441-45a9-9228-f34103c251fb",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/2",
+    "url": "localhost:3000/sales/2",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-02-14T14:58:43.612Z",
+    "modified": "2023-02-14T14:58:43.612Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Pannacota de morango\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "75008914-8432-4497-8ee4-a098d5e7162b",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/8",
+    "url": "localhost:3000/sales/8",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-02-14T14:58:47.873Z",
+    "modified": "2023-02-14T14:58:47.873Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Pannacota de morango\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "0d373bd6-54a3-462b-9392-fc753ef9635a",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/8",
+    "url": "localhost:3000/sales/8",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-14T15:04:05.423Z",
+    "modified": "2023-02-14T15:04:05.423Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Pannacota de morango\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3432b05c-b524-4de3-b750-07fd9ab8d8c1",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/99",
+    "url": "localhost:3000/sales/99",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-02-14T15:08:31.578Z",
+    "modified": "2023-02-14T15:08:31.578Z",
     "headers": [],
     "params": [],
     "body": {
