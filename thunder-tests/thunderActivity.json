@@ -555,5 +555,30 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "779b34af-18a8-4cdf-b2ab-ff2f1bd7943e",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/search?q=Escudo",
+    "url": "localhost:3000/products/search?q=Escudo",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-14T22:00:34.836Z",
+    "modified": "2023-02-14T22:00:34.836Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Escudo",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 2,\n    \"quantity\": 16\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 32\n  }\n]",
+      "form": []
+    },
+    "tests": []
   }
 ]

@@ -68,4 +68,16 @@ describe('Testes da camada Service', function () {
     const result = await services.deleteProduct(28);
     expect(result).to.deep.equal({ type: 404, message: 'Product not found' });
   });
+
+  it('Verifica se são retornados todos os itens caso não seja colocado parâmetro de busca na rota GET - com service', async function () {
+    sinon.stub(models, 'getAllProducts').resolves(allProducts);
+    const result = await services.searchProduct();
+    expect(result).to.be.deep.equal(allProducts);
+  });
+
+  it('Verifica se é retornado um objeto do produto colocando um parâmetro de busca na rota GET - com service', async function () {
+    sinon.stub(models, 'getAllProducts').resolves(allProducts);
+    const result = await services.searchProduct('Escudo');
+    expect(result).to.be.deep.equal([finalJustice]);
+  });
 });

@@ -39,6 +39,7 @@ const searchProduct = async (searchValue) => {
   const getProducts = await model.getAllProducts();
 
   const verifyProducts = getProducts.filter(({ name }) => name.includes(searchValue));
+  if (verifyProducts.length === 0) return getProducts;
 
   return verifyProducts;
 };

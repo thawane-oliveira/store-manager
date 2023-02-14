@@ -130,4 +130,19 @@ describe('Testes da camada Controller', function () {
     expect(res.json).to.have.been.calledWith(errorMsg)
   });
 
+  it('Verifica se é possível pesquisar um produto pela rota GET - com controllers', async function () {
+    const req = { query: { "q": "Escudo" } };
+    const res = {}
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(services, 'searchProduct').resolves(finalJustice)
+
+    await controllers.searchProduct(req, res);
+
+    expect(res.status).to.have.been.calledWith(200)
+    expect(res.json).to.have.been.calledWith(finalJustice)
+  });
+
 });
