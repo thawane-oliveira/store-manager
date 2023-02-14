@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { dojyan, ballBreaker, scaryMonsters, creamStartler } = require('../mocks/sale.mock');
+const { dojyan, ballBreaker, scaryMonsters, creamStartler, d4c } = require('../mocks/sale.mock');
 const controllers = require('../../../src/controllers/sales.controller');
 const services = require('../../../src/services/sales.service');
 
@@ -65,11 +65,41 @@ describe('Testes da camada Controller para a rota sales', function () {
     res.json = sinon.stub().returns();
 
     sinon.stub(services, 'getSaleById').resolves([]);
-    
+
     await controllers.getSaleById(req, res);
 
     expect(res.status).to.have.been.calledWith(404);
     expect(res.json).to.have.been.calledWith(msgMock);
+  });
+
+  it('Verifica se ao entrar na rota /sales:id com DELETE é possível deletar uma venda - com controllers', async function () {
+
+    const req = { params: { id: '1' } };
+    const res = {};
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(services, 'deleteSale').resolves(d4c);
+
+    await controllers.deleteSale(req, res);
+
+    expect(res.status).to.have.been.calledWith(204);
+  });
+
+  it('Verifica se ao entrar na rota /sales:id com DELETE não é possível deletar uma venda, que tenha id inválido - com controllers', async function () {
+
+    const req = { params: { id: '49' } };
+    const res = {};
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(services, 'deleteSale').resolves([]);
+
+    await controllers.deleteSale(req, res);
+
+    expect(res.status).to.have.been.calledWith(404);
   });
 
 });

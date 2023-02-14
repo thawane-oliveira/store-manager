@@ -1,7 +1,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { dojyan, scaryMonsters, tusk, ballBreaker, creamStartler } = require('../mocks/sale.mock');
+const { dojyan, scaryMonsters, tusk, ballBreaker, creamStartler, sbr } = require('../mocks/sale.mock');
 const services = require('../../../src/services/sales.service');
 const models = require('../../../src/models/sales.model');
 
@@ -31,6 +31,14 @@ describe('Testes da camada Service para a rota sales', function () {
   it('Verifica se é possível listar vendas pelo id - com service', async function () {
     sinon.stub(models, 'getSaleById').resolves(creamStartler);
     const sales = await services.getSaleById(1);
+    expect(sales).to.be.deep.equal(creamStartler);
+  });
+
+  it('Verifica se é possível deletar uma venda - com service', async function () {
+    sinon.stub(models, 'getSaleById').resolves(creamStartler);
+    sinon.stub(models, 'deleteSale').resolves(sbr);
+
+    const sales = await services.deleteSale(1);
     expect(sales).to.be.deep.equal(creamStartler);
   });
 });

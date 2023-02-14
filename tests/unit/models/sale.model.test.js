@@ -40,4 +40,10 @@ describe('Testes da camada Model para a rota sales', function () {
     const sales = await models.getSaleById(3);
     expect(sales).to.be.deep.equal(creamStartler);
   });
+
+  it('Verifica se é possível deletar uma venda e seus detalhes pelo id - com model', async function () {
+    sinon.stub(connection, 'execute').resolves([scaryMonsters]);
+    const sales = await models.deleteSale(3);
+    expect(sales).to.be.deep.equal(scaryMonsters);
+  });
 });

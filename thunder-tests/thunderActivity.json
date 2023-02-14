@@ -121,12 +121,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-02-13T23:35:31.603Z",
-    "modified": "2023-02-14T03:18:28.148Z",
+    "modified": "2023-02-14T19:12:07.152Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  [{\n    \"productId\": 3,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }]",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
       "form": []
     },
     "tests": []
@@ -197,12 +197,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-02-14T03:13:51.639Z",
-    "modified": "2023-02-14T03:13:51.639Z",
+    "modified": "2023-02-14T19:17:19.654Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 49,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  },\n    {\n    \"productId\": 4,\n    \"quantity\": 50\n  }\n]",
+      "raw": "[\n  {\n    \"productId\": 2,\n    \"quantity\": 16\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 32\n  }\n]",
       "form": []
     },
     "tests": []
@@ -216,12 +216,12 @@
     "method": "PUT",
     "sortNum": 0,
     "created": "2023-02-14T04:03:25.669Z",
-    "modified": "2023-02-14T04:03:25.669Z",
+    "modified": "2023-02-14T18:47:48.933Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
       "form": []
     },
     "tests": []
@@ -407,6 +407,101 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"Pannacota de morango\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7093b091-25c9-43d3-aab2-79047b28a910",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/1",
+    "url": "localhost:3000/sales/1",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-02-14T17:48:55.480Z",
+    "modified": "2023-02-14T17:48:55.480Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Pannacota de morango\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "afdce2e0-ebc7-460a-9d43-9665ad488821",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/3",
+    "url": "localhost:3000/sales/3",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-02-14T19:12:29.044Z",
+    "modified": "2023-02-14T19:14:49.451Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 2,\n    \"quantity\": 16\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 32\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "362eb345-d3ff-4d9f-a885-4bc87272a6fb",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/5",
+    "url": "localhost:3000/sales/5",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-02-14T19:15:47.207Z",
+    "modified": "2023-02-14T19:15:47.207Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 2,\n    \"quantity\": 16\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 32\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7568938e-30d3-4b05-81e0-214c41aade53",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/2",
+    "url": "localhost:3000/sales/2",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-02-14T19:17:04.872Z",
+    "modified": "2023-02-14T19:17:04.872Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 2,\n    \"quantity\": 16\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 32\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d52aafc4-1ede-405a-9af2-e08f41513a05",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales/5",
+    "url": "localhost:3000/sales/5",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-14T19:20:29.508Z",
+    "modified": "2023-02-14T19:20:29.508Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 2,\n    \"quantity\": 16\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 32\n  }\n]",
       "form": []
     },
     "tests": []

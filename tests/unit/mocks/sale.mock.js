@@ -68,10 +68,34 @@ const creamStartler = [
   }
 ];
 
+const d4c = [
+  {
+    date: new Date('2023-02-14T17:54:28.000Z'),
+    productId: 1,
+    quantity: 5
+  },
+  {
+    date: new Date('2023 - 02 - 14T17: 54: 28.000Z'),
+    productId: 2,
+    quantity: 10
+  }
+];
+
+const sbr = {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: '',
+  serverStatus: 2,
+  warningStatus: 0
+};
+
 module.exports = {
   dojyan,
   scaryMonsters,
   tusk,
   ballBreaker,
   creamStartler,
+  d4c,
+  sbr,
 }

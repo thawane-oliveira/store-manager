@@ -15,7 +15,6 @@ function validateSaleQuantity(req, res, next) {
 
 function validateQuantityNumber(req, res, next) {
   const sale = req.body;
-
   const quantityArray = sale.map((sl) => sl.quantity);
 
   const validateQuantity = quantityArray.some((qtt) => qtt <= 0);
