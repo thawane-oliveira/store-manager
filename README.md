@@ -1,4 +1,4 @@
-<h2>Store Managers</h2>
+<h2>Store Manager</h2>
 
 Projeto em que foi realizado o desenvolvimento de uma API que simula as vendas de uma loja, onde podemos listar, criar, deletar e atualizar (CRUD) não só vendas, como também produtos. O MySQL foi o banco de dados escolhido para administração dos dados da loja.</br>
 A API foi contruída usando a arquitetura MSC (Model, Service e Controller).</br>
