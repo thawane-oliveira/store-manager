@@ -1,13 +1,11 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h2>Store Managers</h2>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Projeto em que foi realizado o desenvolvimento de uma API que simula as vendas de uma loja, onde podemos listar, criar, deletar e atualizar (CRUD) não só vendas, como também produtos. O MySQL foi o banco de dados escolhido para administração dos dados da loja.</br>
+A API foi contruída usando a arquitetura MSC (Model, Service e Controller).</br>
+Também foram realizados testes de cobertura das camadas, com auxílio das tecnologias mocha, chai e sinon.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+<h3>Tecnologias utilizadas</h3>
+
+<li>Node.Js</li>
+<li>Express</li>
+<li>Mocha, chai e sinon</li>
